@@ -90,7 +90,7 @@ const login = async (req, res) => {
       return res.json({ status: 401, error: "Invalid credentials" });
     }
   } catch (error) {
-    res.json({ status: 404, error: "Login failed" });
+    res.json({ status: 404, error: error.message });
   }
 };
 

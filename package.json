@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "chart.js": "^4.4.3",
+    "csv-parser": "^3.0.0",
+    "date-fns": "^3.6.0",
+    "react-chartjs-2": "^5.2.0"
+  }
+}

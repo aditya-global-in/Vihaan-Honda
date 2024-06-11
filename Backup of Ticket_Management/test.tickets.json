@@ -1,0 +1,408 @@
+[{
+  "_id": {
+    "$oid": "656997266f6f8b1898269ada"
+  },
+  "id": "9f2dc553-0254-40d6-9c0e-aebd9d8060fe",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "Vishnu",
+  "companyName": "Aarogya Hospital",
+  "email": "support@globalin.co.uk",
+  "phoneNumber": "9969869842",
+  "landlineNumber": "",
+  "issue": "Software",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "Pc Booting Issue pc auto start in Recovery Mode",
+  "resolved": true,
+  "priority": "medium",
+  "assignedEngineer": "202312041438",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-01T08:19:50.044Z"
+  },
+  "logs": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656accc26bdb1db2cc9d6842"
+  },
+  "id": "382ae10e-a383-4124-abcd-4c5133b6f411",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "Ashwini",
+  "companyName": "Honeytech",
+  "email": "123@gmail.com",
+  "phoneNumber": "9594456464",
+  "landlineNumber": "Mulund",
+  "issue": "Software",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "In Outlook while sent receive mail asking Passwprd again and again",
+  "resolved": true,
+  "priority": "low",
+  "Problem": "",
+  "assignedEngineer": "202312021788",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-02T06:20:50.928Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-02T21:36:46.460Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "ACTIVATE EMAIL ID",
+      "_id": {
+        "$oid": "656ba36e6025b701b72a383d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d6babe9e96006c6e5f447"
+  },
+  "id": "dd484bee-7987-49a5-8732-fde8c198efef",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "VITTHAL",
+  "companyName": "GODAWARI BANK",
+  "email": "123@GMAIL.COM",
+  "phoneNumber": "9765768908",
+  "landlineNumber": "NARIMAN POINT",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "NO POWER IN DOOR ACCESS THUMB DEVICE",
+  "resolved": false,
+  "priority": "low",
+  "Problem": "",
+  "assignedEngineer": "202312021788",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T06:03:23.473Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-04T06:23:27.855Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "As per engg ( Nivrutti )-One Thumb Device was faulty ( No Power )",
+      "_id": {
+        "$oid": "656d705ffb7caad0284b6510"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d6ce5fb7caad0284b63e4"
+  },
+  "id": "1dc9454c-5d81-4f7f-b42f-44e6b4633da1",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "SHYAM",
+  "companyName": "BIGWING - SR",
+  "email": "123@GMAIL.COM",
+  "phoneNumber": "8828228522",
+  "landlineNumber": "PANCH PAKHADI",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "IN OFFICE ONE DOME CAMERA WAS SOME ONE UNMOUNT FROM SELLING",
+  "resolved": true,
+  "priority": "low",
+  "Problem": "",
+  "assignedEngineer": "",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T06:08:37.114Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-04T11:23:22.554Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "Share folder in Reception PC",
+      "_id": {
+        "$oid": "656db6aa8b21206dbd49b116"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d6f2ffb7caad0284b6462"
+  },
+  "id": "1d536323-8bb1-4233-ad35-88024824d555",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "VINAYAK",
+  "companyName": "DARSHAN PROPERTIIES",
+  "email": "123@GMAIL.COM",
+  "phoneNumber": "9867608227",
+  "landlineNumber": "NARIMAN POINT",
+  "issue": "Software",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "NAS not accessiable",
+  "resolved": true,
+  "priority": "low",
+  "Problem": "",
+  "assignedEngineer": "202312021788",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T06:18:23.405Z"
+  },
+  "logs": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d6f7bfb7caad0284b6488"
+  },
+  "id": "0d1a5222-4c65-47e3-ab78-5cef168c19a2",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "Poonam",
+  "companyName": "Vihan Honda - sr",
+  "email": "123@gmail.com",
+  "phoneNumber": "12345678",
+  "landlineNumber": "Shahapur",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "No Display Issue",
+  "resolved": true,
+  "priority": "medium",
+  "Problem": "",
+  "assignedEngineer": "202312044518",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T06:19:39.020Z"
+  },
+  "logs": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d6fccfb7caad0284b64b2"
+  },
+  "id": "1ae9cd4d-2076-483f-979d-85372d3f68fb",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "Rupesh",
+  "companyName": "Vihan Honda - SC",
+  "email": "123@gmail.com",
+  "phoneNumber": "12345678",
+  "landlineNumber": "Wagale",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "PC not start",
+  "resolved": true,
+  "priority": "low",
+  "Problem": "",
+  "assignedEngineer": "202312041438",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T06:21:00.986Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-04T07:23:10.161Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "Reconnect all connection",
+      "_id": {
+        "$oid": "656d7e5ec735dcec9ed3e0d4"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d7004fb7caad0284b64f0"
+  },
+  "id": "1b8cf13a-a956-4eb0-ba18-eda167755564",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "Rupesh",
+  "companyName": "Vihan Honda - SC",
+  "email": "123@gmail.com",
+  "phoneNumber": "12345678",
+  "landlineNumber": "Wagale",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "PC not start",
+  "resolved": true,
+  "priority": "medium",
+  "Problem": "",
+  "assignedEngineer": "202312041438",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T06:21:56.249Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-04T11:58:00.904Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "Reconnect all connection and ram clean and refit",
+      "_id": {
+        "$oid": "656dbec88b21206dbd49b25e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656d820dcceab77c812e3da4"
+  },
+  "id": "0c8746dd-01c1-481e-8150-f9adabc64d2c",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "Test.",
+  "companyName": "Test Company.",
+  "email": "test@gmail.com",
+  "phoneNumber": "9182736455",
+  "landlineNumber": "Design.",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "",
+  "remarks": "Nothing.",
+  "resolved": true,
+  "priority": "medium",
+  "assignedEngineer": "202311299805",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T07:38:53.118Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-04T08:00:12.302Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "Man.",
+      "_id": {
+        "$oid": "656d870c8b21206dbd49aec7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656db9418b21206dbd49b133"
+  },
+  "id": "41db5234-ea11-4dce-8ec8-87fd5f3ec400",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "MILIND GUPTE",
+  "companyName": "MILIND GUPTE",
+  "email": "123@GMAIL.COM",
+  "phoneNumber": "8879216630",
+  "landlineNumber": "THANE",
+  "issue": "Software",
+  "classification": "Problem",
+  "channel": "Phone",
+  "remarks": "RANSOMEWARE ATTACK IN SERVER SYSTEM",
+  "resolved": false,
+  "priority": "high",
+  "assignedEngineer": "202312021788",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T11:34:25.471Z"
+  },
+  "logs": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656dc2a98b21206dbd49b27d"
+  },
+  "id": "2d85edd8-674a-4adb-88e3-128b52935db1",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "RASHISH",
+  "companyName": "TRIVICTOR",
+  "email": "132@GMAIL.COM",
+  "phoneNumber": "9820507548",
+  "landlineNumber": "NAHUR",
+  "issue": "Software",
+  "classification": "Problem",
+  "channel": "Phone",
+  "remarks": "BOOTING ISSUE",
+  "resolved": true,
+  "priority": "low",
+  "assignedEngineer": "202312041438",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T12:14:33.311Z"
+  },
+  "logs": [
+    {
+      "timestamp": {
+        "$date": "2023-12-04T12:15:42.286Z"
+      },
+      "userRole": "9087-t1-vaek-123-riop",
+      "message": "Change boot option priority in BIOS",
+      "_id": {
+        "$oid": "656dc2ee8b21206dbd49b2a3"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656dc8588b21206dbd49b32b"
+  },
+  "id": "6c41ea02-d60c-4fca-b73b-33d309d97b62",
+  "byUser": {
+    "$numberLong": "202311273592"
+  },
+  "name": "RUPESH",
+  "companyName": "VIHAN HONDA - SC",
+  "email": "123@GMAIL.COM",
+  "phoneNumber": "12345678",
+  "landlineNumber": "WAGALE",
+  "issue": "Hardware",
+  "classification": "Problem",
+  "channel": "Phone",
+  "remarks": "CABINET START BUTTON DAMAGED AND KEYBOARD SOME KEYS NW",
+  "resolved": false,
+  "priority": "low",
+  "assignedEngineer": "202312041438",
+  "accepted": 1,
+  "createdAt": {
+    "$date": "2023-12-04T12:38:48.004Z"
+  },
+  "logs": [],
+  "__v": 0
+}]

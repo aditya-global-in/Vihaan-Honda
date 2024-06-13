@@ -42,7 +42,7 @@ export const UserTickets = () => {
             case "airolistock":
                 return "Airoli Stock";
             default:
-                return "All Locations Stock";
+                return "Location";
         }
     };
 
@@ -94,7 +94,7 @@ export const UserTickets = () => {
 
     const filteredTickets = sortedTickets
         .filter((ticket) => {
-            if (selectedFilter === "all") return true;
+            if (selectedFilter === "Models") return true;
             switch (selectedFilter) {
                 case "thanestock":
                     return ticket.location === "Thane";
@@ -115,64 +115,38 @@ export const UserTickets = () => {
 
     return (
         <div>
-            <div className="p-4">
-                {(role === "9087-t1-vaek-123-riop" || role === "7003-t6-laek-303-jiop") && (
-                    <div className="max-w-full mx-4 sm:mx-auto sm:px-6 lg:px-8">
-                        <div className="sm:flex sm:space-x-4">
-                            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-                                <div className="bg-blue-100 p-5">
-                                    <div className="sm:flex sm:items-start">
-                                        <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                                            <h3 className="text-base leading-6 font-medium text-black-400">
-                                                Total Stock.
-                                            </h3>
-                                            <p className="text-3xl font-bold text-black">
-                                                {userTickets.length}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-                                <div className="bg-slate-100 p-5">
-                                    <div className="sm:flex sm:items-start">
-                                        <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                                            <h3 className="text-base leading-6 font-medium text-black-400">
-                                                {getDisplayName()} { }
-                                            </h3>
-                                            <p className="text-3xl font-bold text-black">
-                                                {filteredTickets.filter((ticket) => ticket.location === getDisplayName().split(' ')[0]).length}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-                                <div className="bg-slate-100 p-5">
-                                    <div className="sm:flex sm:items-start">
-                                        <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                                            <h3 className="text-base leading-6 font-medium text-black-400">
-                                                {selectedFilter1} { }
-                                            </h3>
-                                            <p className="text-3xl font-bold text-black">
-                                                {filteredTickets.filter((ticket) => ticket.model === selectedFilter1).length}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div className="p-4 bg-gray-100">
+            {(role === "9087-t1-vaek-123-riop" || role === "7003-t6-laek-303-jiop") && (
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-orange-500 text-white p-4 rounded-lg shadow">
+                            <h3 className="text-lg font-semibold">Total Stock</h3>
+                            <p className="text-4xl font-bold">{userTickets.length}</p>
+                        </div>
+                        <div className="bg-teal-500 text-white p-4 rounded-lg shadow">
+                            <h3 className="text-lg font-semibold">{getDisplayName()}</h3>
+                            <p className="text-4xl font-bold">
+                                {filteredTickets.filter((ticket) => ticket.location === getDisplayName().split(" ")[0]).length}
+                            </p>
+                        </div>
+                        <div className="bg-blue-500 text-white p-4 rounded-lg shadow">
+                            <h3 className="text-lg font-semibold">{selectedFilter1 === "all" ? "Models" : selectedFilter1}</h3>
+                            <p className="text-4xl font-bold">
+                                {filteredTickets.filter((ticket) => ticket.model === selectedFilter1).length}
+                            </p>
+                        </div>
+                        <div className="bg-green-500 text-white p-4 rounded-lg shadow">
+                            <h3 className="text-lg font-semibold">Stock Sold</h3>
+                            <p className="text-4xl font-bold">
+                                {filteredTickets.filter((ticket) => ticket.resolved).length}
+                            </p>
                         </div>
                     </div>
                 )}
-                <div className="grid grid-cols-12 justify-center items-center">
-                    <h2
-                        className={`text-3xl font-bold text-center mb-4 col-span-12 ${role !== "2069-t2-prlo-456-fiok" && "md:col-span-10"}`}
-                    >
-                        Inventory
-                    </h2>
+                <div className="grid grid-cols-12 gap-4 mb-4">
+                    <h2 className="text-2xl font-semibold text-gray-800 col-span-12 text-center">Inventory</h2>
                     {role !== "2069-t2-prlo-456-fiok" && (
                         <select
-                            className="px-4 py-2 mb-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-12 md:col-span-2"
+                            className="col-span-2 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
                             value={selectedFilter1}
                             onChange={(e) => setSelectedFilter1(e.target.value)}
                         >
@@ -185,11 +159,11 @@ export const UserTickets = () => {
                         </select>
                     )}
                     <select
-                        className="px-4 py-2 mb-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-12 md:col-span-2"
+                        className="col-span-2 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
                         value={selectedFilter}
                         onChange={(e) => setSelectedFilter(e.target.value)}
                     >
-                        <option value="all">All Locations Stock</option>
+                        <option value="all">All Stock</option>
                         <option value="thanestock">Thane Stock</option>
                         <option value="vashistock">Vashi Stock</option>
                         <option value="ghansolistock">Ghansoli Stock</option>
@@ -250,8 +224,7 @@ export const UserTickets = () => {
                                     <tr
                                         key={ticket.id}
                                         onClick={() => handleTicketClick(ticket.id)}
-                                        style={{ cursor: `url(${bikeCursor}), auto` }}
-                                        className="hover:bg-gray-300 cursor-pointer"
+                                        className="hover:bg-gray-100 cursor-pointer border-b"
                                         // className={
                                         //     ticket.resolved
                                         //         ? "bg-green-200 cursor-pointer border-b-2 border-slate-400 border-dashed font-semibold"

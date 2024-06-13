@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'vihaan-honda-red': '#e20612',
+        'vihaan-honda-red-darker': '#af040d',
+      },
+    },
   },
   plugins: [],
 };

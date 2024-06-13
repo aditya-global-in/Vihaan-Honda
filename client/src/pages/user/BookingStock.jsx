@@ -210,7 +210,7 @@ const BookingStock = () => {
                             <div className="flex justify-center">
                                 <button
                                     type="submit"
-                                    className="px-8 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-40"
+                                    className="px-8 py-2 bg-vihaan-honda-red text-white rounded hover:bg-vihaan-honda-red-darker w-40"
                                 >
                                     Submit
                                 </button>

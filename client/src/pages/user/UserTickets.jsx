@@ -41,7 +41,7 @@ export const UserTickets = () => {
             case "airolistock":
                 return "Airoli Stock";
             default:
-                return "All Stock";
+                return "All Locations Stock";
         }
     };
 
@@ -175,7 +175,7 @@ export const UserTickets = () => {
                             value={selectedFilter1}
                             onChange={(e) => setSelectedFilter1(e.target.value)}
                         >
-                            <option value="all">All Models.</option>
+                            <option value="all">All Models</option>
                             {availableModels.map((model) => (
                                 <option key={model} value={model}>
                                     {model}
@@ -188,11 +188,11 @@ export const UserTickets = () => {
                         value={selectedFilter}
                         onChange={(e) => setSelectedFilter(e.target.value)}
                     >
-                        <option value="all">All Stock</option>
-                        <option value="thanestock">Thane Stock.</option>
-                        <option value="vashistock">Vashi Stock.</option>
-                        <option value="ghansolistock">Ghansoli Stock.</option>
-                        <option value="airolistock">AIROLI Stock.</option>
+                        <option value="all">All Locations Stock</option>
+                        <option value="thanestock">Thane Stock</option>
+                        <option value="vashistock">Vashi Stock</option>
+                        <option value="ghansolistock">Ghansoli Stock</option>
+                        <option value="airolistock">Airoli Stock</option>
                     </select>
                 </div>
 

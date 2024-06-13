@@ -193,7 +193,7 @@ const CreateUserTicket = () => {
                                         onChange={(e) => setEngineNo(e.target.value)}
                                     />
                                 </div>
-                                <div className="flex flex-col sm:flex-row items-center">
+                                {/* <div className="flex flex-col sm:flex-row items-center">
                                     <label className="w-full sm:w-1/3">Location:</label>
                                     <select
                                         className="w-full sm:w-2/3 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -208,7 +208,7 @@ const CreateUserTicket = () => {
                                         <option value="Ghansoli">Ghansoli</option>
                                         <option value="Airoli">Airoli</option>
                                     </select>
-                                </div>
+                                </div> */}
                                 <div className="flex flex-col sm:flex-row items-center">
                                     <label className="w-full sm:w-1/3">Assign Engineer:</label>
                                     <Autocomplete
@@ -229,10 +229,10 @@ const CreateUserTicket = () => {
                             </div>
                         )}
 
-                        <div className="flexjustify-center">
+                        <div className="flex justify-center">
                             <button
                                 type="submit"
-                                className="px-8 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-40"
+                                className="px-8 py-2 bg-vihaan-honda-red text-white rounded hover:bg-vihaan-honda-red-darker w-40"
                             >
                                 Submit
                             </button>

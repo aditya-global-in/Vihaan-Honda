@@ -180,7 +180,7 @@ const CreateUserTicket = () => {
                                         required
                                         type="text"
                                         className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="CHASSIS NO"
+                                        placeholder="Chassis No"
                                         value={chassisNo}
                                         onChange={(e) => setChassisNo(e.target.value)}
                                     />
@@ -188,15 +188,16 @@ const CreateUserTicket = () => {
                                         required
                                         type="text"
                                         className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="ENGINE NO"
+                                        placeholder="Engine No"
                                         value={engineNo}
                                         onChange={(e) => setEngineNo(e.target.value)}
                                     />
-                                </div>
-                                {/* <div className="flex flex-col sm:flex-row items-center">
-                                    <label className="w-full sm:w-1/3">Location:</label>
+                                    <Autocomplete
+                                        suggestions={engineerInfo}
+                                        setEngineerId={handleInputChange}
+                                    />
                                     <select
-                                        className="w-full sm:w-2/3 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         value={location}
                                         onChange={(e) => setlocation(e.target.value)}
                                     >
@@ -208,14 +209,7 @@ const CreateUserTicket = () => {
                                         <option value="Ghansoli">Ghansoli</option>
                                         <option value="Airoli">Airoli</option>
                                     </select>
-                                </div> */}
-                                <div className="flex flex-col sm:flex-row items-center">
-                                    <label className="w-full sm:w-1/3">Assign Engineer:</label>
-                                    <Autocomplete
-                                        suggestions={engineerInfo}
-                                        setEngineerId={handleInputChange}
-                                    />
-                                </div>
+                                </div>                                
                             </>
                         )}
 

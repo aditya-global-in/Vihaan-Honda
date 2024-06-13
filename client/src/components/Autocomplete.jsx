@@ -79,17 +79,15 @@ const Autocomplete = (props) => {
   };
   return (
     <>
-      <div className="w-full">
-        <input
-          type="text"
-          className="border border-1 padding-8 w-full font-semibold"
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          placeholder="start typing to see engineer names"
-          value={input}
-        />
-        {renderAutocomplete()}
-      </div>
+      <input
+        type="text"
+        className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        placeholder="Type Dealer Name"
+        value={input}
+      />
+      {renderAutocomplete()}
     </>
   );
 };

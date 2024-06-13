@@ -73,7 +73,7 @@ const Login = () => {
     return (
         <>
             <style>{keyframes}</style>
-            <div className="flex justify-center items-center h-screen bg-while">
+            <form onSubmit={handleSubmit} className="flex justify-center items-center h-screen bg-while">
                 <div className="relative px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
                     <div className="absolute inset-0 overflow-hidden">
                         <video
@@ -135,9 +135,8 @@ const Login = () => {
                                     </div>
                                     <div className="flex flex-col mt-4 lg:space-y-2">
                                         <button
-                                            type="button"
+                                            type="submit"
                                             className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-red-600 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                            onClick={handleSubmit}
                                         >
                                             Login
                                         </button>
@@ -177,7 +176,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </>
     );
 };

@@ -30,8 +30,8 @@ const Navbar = () => {
     };
 
     return (
-        <header className="text-gray-600 body-font shadow-lg rounded-xl bg-slate-50">
-            <div className="container bg-vihaan-honda-red mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+        <header className="bg-vihaan-honda-red text-gray-600 body-font shadow-lg bg-slate-50">
+            <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
                 <div
                     className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 cursor-pointer"
                     onClick={() => {

@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'vihaan-honda-red': '#e20612',
-        'vihaan-honda-red-darker': '#af040d',
+        'vihaan-honda-red': '#fa1321',
+        'vihaan-honda-red-darker': '#c60f1a',
       },
     },
   },

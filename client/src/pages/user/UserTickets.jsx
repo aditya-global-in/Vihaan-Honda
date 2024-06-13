@@ -1,6 +1,7 @@
 ﻿import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import bikeCursor from './motorbike_icon.png';
 
 export const UserTickets = () => {
     const { user_id } = useParams();
@@ -208,18 +209,18 @@ export const UserTickets = () => {
                     <div className="overflow-x-auto">
                         <table className="w-full bg-white rounded-lg shadow">
                             <thead>
-                                <tr className="bg-blue-500 text-white">
+                                <tr className="bg-teal-600 text-white">
                                     <th className="py-2 px-4">
-                                        <h3 className="text-lg font-bold">MODEL</h3>
+                                        <h3 className="text-lg font-bold">Model</h3>
                                     </th>
                                     <th className="py-2 px-4">
-                                        <h3 className="text-lg font-bold">COLOUR</h3>
+                                        <h3 className="text-lg font-bold">Colour</h3>
                                     </th>
                                     <th className="py-2 px-4">
-                                        <h3 className="text-lg font-bold">CHASSIS NO</h3>
+                                        <h3 className="text-lg font-bold">Chassis No</h3>
                                     </th>
                                     <th className="py-2 px-4">
-                                        <h3 className="text-lg font-bold">ENGINE NO</h3>
+                                        <h3 className="text-lg font-bold">Engine No</h3>
                                     </th>
                                     <th className="py-2 px-4">
                                         <h3 className="text-lg font-bold">Showroom</h3>
@@ -249,15 +250,17 @@ export const UserTickets = () => {
                                     <tr
                                         key={ticket.id}
                                         onClick={() => handleTicketClick(ticket.id)}
-                                        className={
-                                            ticket.resolved
-                                                ? "bg-green-200 cursor-pointer border-b-2 border-slate-400 border-dashed font-semibold"
-                                                : (ticket.createdAt && calculateTimeDifference(ticket.createdAt) === 0)
-                                                    ? "bg-white cursor-pointer border-b-2 border-gray-400 border-dashed font-bold"
-                                                    : (ticket.createdAt && calculateTimeDifference(ticket.createdAt) <= 2)
-                                                        ? "bg-red-400 cursor-pointer border-b-2 border-gray-400 border-dashed font-bold"
-                                                        : "bg-red-800 cursor-pointer border-b-2 border-gray-400 border-dashed font-bold text-white"
-                                        }
+                                        style={{ cursor: `url(${bikeCursor}), auto` }}
+                                        className="hover:bg-gray-300 cursor-pointer"
+                                        // className={
+                                        //     ticket.resolved
+                                        //         ? "bg-green-200 cursor-pointer border-b-2 border-slate-400 border-dashed font-semibold"
+                                        //         : (ticket.createdAt && calculateTimeDifference(ticket.createdAt) === 0)
+                                        //             ? "bg-white cursor-pointer border-b-2 border-gray-400 border-dashed font-bold"
+                                        //             : (ticket.createdAt && calculateTimeDifference(ticket.createdAt) <= 2)
+                                        //                 ? "bg-red-400 cursor-pointer border-b-2 border-gray-400 border-dashed font-bold"
+                                        //                 : "bg-red-800 cursor-pointer border-b-2 border-gray-400 border-dashed font-bold text-white"
+                                        // }
                                     >
                                         <td className="py-2 px-4 text-center">{ticket.model}</td>
                                         <td className="py-2 px-4 text-center">{ticket.colour}</td>

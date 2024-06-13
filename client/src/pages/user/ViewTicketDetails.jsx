@@ -542,26 +542,26 @@ const ViewTicketDetails = () => {
                     
             <div className="flex justify-center gap-2 py-4 border-t border-gray-300">
                 <button
-                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800"
+                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800 cursor-pointer"
                     onClick={() => setUpdateTicket(true)}
                 >
                     Booking Entry.
                 </button>
                 
                 <button
-                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800"
+                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800 cursor-pointer"
                     onClick={() => setdeliveryTicket(true)}
                 >
                     Delivery Entry.
                 </button>
                 <button
-                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800"
+                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800 cursor-pointer"
                     onClick={() => setsaleLetter(true)}
                 >
                     Issue Sale Letter.
                 </button>
                 <button
-                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800"
+                    className="px-6 py-2 text-white bg-indigo-700 rounded hover:bg-indigo-800 cursor-pointer"
                     onClick={() => setdatePassing(true)}
                 >
                     Date of Passing.
@@ -569,7 +569,7 @@ const ViewTicketDetails = () => {
                         </div>
             <div className="flex justify-center gap-2 py-4 border-t border-gray-300">
                 <button
-                    className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+                    className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 cursor-pointer"
                     onClick={() => setStatus(!status)}
                 >
                     {status ? "Amount Pending." : "Amount Fully paid."}
@@ -577,7 +577,7 @@ const ViewTicketDetails = () => {
                 {userRole === "9087-t1-vaek-123-riop" && (
                     <button
                         onClick={handleAssignEngineer}
-                        className="px-6 py-2 text-white bg-teal-500 rounded hover:bg-teal-600"
+                        className="px-6 py-2 text-white bg-teal-500 rounded hover:bg-teal-600 cursor-pointer"
                     >
                         Transfer Stock.
                     </button>
@@ -602,8 +602,8 @@ const ViewTicketDetails = () => {
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none min-h-[50vh] max-h-[50vh]">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-slate-200">
-                  <h3 className="text-3xl font-semibold">Transfer Stock.</h3>
+                <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-slate-200 cursor-pointer">
+                  <h3 className="text-3xl font-semibold ">Transfer Stock.</h3>
                 </div>
                 {/*body*/}
                 <div className="relative flex-auto p-4 overflow-y-auto">
@@ -616,7 +616,7 @@ const ViewTicketDetails = () => {
                 <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
                   
                   <button
-                    className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
+                    className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none cursor-pointer"
                     type="button"
                     onClick={setEngineer}
                   >

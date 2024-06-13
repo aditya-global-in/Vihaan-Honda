@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
-import scrollTopImage from './Vihaan-Honda.png';
+import scrollTopImage from './vihaan_honda_logo.png';
 import * as XLSX from 'xlsx';
 
 const Navbar = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
 
     return (
         <header className="text-gray-600 body-font shadow-lg rounded-xl bg-slate-50">
-            <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+            <div className="container bg-vihaan-honda-red mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
                 <div
                     className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 cursor-pointer"
                     onClick={() => {
@@ -41,9 +41,9 @@ const Navbar = () => {
                     <img
                         src={scrollTopImage}
                         alt="Scroll Top"
-                        className="w-10 h-10 rounded-full"
+                        className="w-30 h-12"
                     />
-                    <span className="ml-2 text-xl">Vihaan Enterprise</span>
+                    {/* <span className="ml-2 text-xl">Vihaan Enterprise</span> */}
                 </div>
                 {location.pathname === "/" ? (
                     <>
@@ -133,7 +133,7 @@ const Navbar = () => {
 
                             {userRole != "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/stockfilter`}>
-                                    <span className="mr-5 hover:text-gray-900 text-blue-500 ">
+                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
                                         Stock Filter
                                     </span>
                                 </Link>
@@ -141,7 +141,7 @@ const Navbar = () => {
 
                             {userRole != "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/stockfilter1`}>
-                                    <span className="mr-5 hover:text-gray-900 text-blue-500 ">
+                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
                                         Stock Filter 1
                                     </span>
                                 </Link>
@@ -149,20 +149,20 @@ const Navbar = () => {
 
                             {userRole != "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/create_ticket`}>
-                                    <span className="mr-5 hover:text-gray-900 text-blue-500 ">
+                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
                                         Add Items
                                     </span>
                                 </Link>
                             )}
                             {userRole != "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/booking_stock`}>
-                                    <span className="mr-5 hover:text-gray-900 text-blue-500 ">
+                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
                                         Customer Master
                                     </span>
                                 </Link>
                             )}
                             <Link to={`/user/${user_id}/tickets`}>
-                                <span className="mr-5 hover:text-gray-900 text-green-500">
+                                <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
                                     View Stocks
                                 </span>
                             </Link>
@@ -174,7 +174,7 @@ const Navbar = () => {
                                             getTicketExport();
                                         }}
                                     >
-                                        <span className="mr-5 hover:text-gray-900 text-yellow-600">
+                                        <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
                                             Export All Tickets
                                         </span>
                                     </button>
@@ -189,7 +189,7 @@ const Navbar = () => {
                                 localStorage.removeItem("uid");
                                 navigate("/login");
                             }}
-                            className="inline-flex items-center bg-red-100 border-0 py-1 px-3 focus:outline-none hover:bg-slate-100 rounded text-base mt-4 md:mt-0"
+                            className="inline-flex items-center bg-red-100 border-0 py-1 px-3 focus:outline-none hover:bg-slate-100 rounded text-base mt-4 md:mt-0 cursor-pointer"
                         >
                             Logout
                             <svg

@@ -14,7 +14,7 @@ const fetchTickets = async (req, res) => {
         const tickets = await Ticket.find();
         res.json({ status: 200, tickets });
     } catch (error) {
-        res.json({ status: "error", error: "Failed to fetch tickets" });
+        res.json({ status: "error", error: "Failed to fetch tickets, reason: " + error.message });
     }
 };
 

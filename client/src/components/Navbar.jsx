@@ -29,6 +29,12 @@ const Navbar = () => {
         }
     };
 
+    const getLinkClassName = (path) => (
+        location.pathname === path
+            ? "mr-5 hover:text-gray-900 text-white font-bold cursor-pointer bg-vihaan-honda-red-darker rounded px-2 py-1"
+            : "mr-5 hover:text-gray-900 text-white font-bold cursor-pointer"
+    );
+
     return (
         <header className="bg-vihaan-honda-red text-gray-600 body-font shadow-lg bg-slate-50">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
@@ -131,42 +137,44 @@ const Navbar = () => {
                     <>
                         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
 
-                            {userRole != "2069-t2-prlo-456-fiok" && (
+                        {userRole !== "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/stockfilter`}>
-                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
+                                    <span className={getLinkClassName(`/user/${user_id}/stockfilter`)}>
                                         Stock Filter
                                     </span>
                                 </Link>
                             )}
 
-                            {userRole != "2069-t2-prlo-456-fiok" && (
+                            {userRole !== "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/stockfilter1`}>
-                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
+                                    <span className={getLinkClassName(`/user/${user_id}/stockfilter1`)}>
                                         Stock Filter 1
                                     </span>
                                 </Link>
                             )}
 
-                            {userRole != "2069-t2-prlo-456-fiok" && (
+                            {userRole !== "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/create_ticket`}>
-                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
+                                    <span className={getLinkClassName(`/user/${user_id}/create_ticket`)}>
                                         Add Items
                                     </span>
                                 </Link>
                             )}
-                            {userRole != "2069-t2-prlo-456-fiok" && (
+
+                            {userRole !== "2069-t2-prlo-456-fiok" && (
                                 <Link to={`/user/${user_id}/booking_stock`}>
-                                    <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
+                                    <span className={getLinkClassName(`/user/${user_id}/booking_stock`)}>
                                         Customer Master
                                     </span>
                                 </Link>
                             )}
+
                             <Link to={`/user/${user_id}/tickets`}>
-                                <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
+                                <span className={getLinkClassName(`/user/${user_id}/tickets`)}>
                                     View Stocks
                                 </span>
                             </Link>
-                                {userRole != "2069-t2-prlo-456-fiok" && (
+                            {userRole !== "2069-t2-prlo-456-fiok" && (
                                 <>
                                     <button
                                         onClick={(e) => {
@@ -174,7 +182,7 @@ const Navbar = () => {
                                             getTicketExport();
                                         }}
                                     >
-                                        <span className="mr-5 hover:text-gray-900 text-white font-bold cursor-pointer">
+                                        <span className={getLinkClassName("#export_tickets")}>
                                             Export All Tickets
                                         </span>
                                     </button>

@@ -218,7 +218,7 @@ const Register = () => {
                     />
                   </div>
                 </div>
-                <div className="text-center mt-4">
+                <div className="text-center">
                   <p className="text-lg font-bold text-gray-800">By Vihaan Enterprises</p>
                 </div>
               </div>

@@ -6,7 +6,7 @@ import { UserRoleContext } from "../../contexts/userRoleContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import bikeVideo from './bike-5491275-4574321.mp4';
-import favicon from './favicon.png';
+import favicon from '../../../public/vihaan_honda_logo.png';
 
 const Login = () => {
     const { setUserRole } = useContext(UserRoleContext);
@@ -136,7 +136,7 @@ const Login = () => {
                                     <div className="flex flex-col mt-4 lg:space-y-2">
                                         <button
                                             type="submit"
-                                            className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-red-600 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                            className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-vihaan-honda-red rounded-xl hover:bg-vihaan-honda-red-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                         >
                                             Login
                                         </button>
@@ -163,14 +163,30 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className="order-first lg:block hidden w-full">
-                                <img
-                                    className="object-cover h-full bg-cover rounded-l-lg"
-                                    src={favicon}
-                                    alt="Vihaan Honda"
-                                    style={{ width: '70%', height: 'auto', margin: '0 auto' }}
-                                />
-                                <div className="text-center mt-4">
-                                    <p className="text-lg font-bold text-gray-800">Vihaan Enterprise</p>
+                                <div
+                                    className="flex items-center justify-center p-4 rounded-l-lg"
+                                    style={{ height: '100%' }}
+                                >
+                                    <div
+                                        className="rounded-full overflow-hidden bg-vihaan-honda-red"
+                                        style={{
+                                            width: '200px',
+                                            height: '200px',
+                                            padding: '10px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                        }}
+                                    >
+                                        <img
+                                            src={favicon}
+                                            alt="Vihaan Honda"
+                                            style={{ width: '100%', height: 'auto' }}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-center">
+                                    <p className="text-lg font-bold text-gray-800">By Vihaan Enterprises</p>
                                 </div>
                             </div>
                         </div>

@@ -14,38 +14,54 @@ const Register = () => {
     password: "",
     role: "user",
   });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+    email: false,
+    password: false
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const registerUser = async (event) => {
     event.preventDefault();
-    const userId = generateUserId();
-    try {
-      const response = await axios.post(
-        "/api/auth/register",
-        { ...obj, userId },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+    setSubmitted(true);
+
+    const { name, phone, email, password } = obj;
+    const isFormValid = name && phone && email && password && !errors.phone;
+
+    if (isFormValid) {
+      const userId = generateUserId();
+      try {
+        const response = await axios.post(
+          "/api/auth/register",
+          { ...obj, userId },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const data = response.data;
+        if (data.error) {
+          toast.error(data.error);
+        } else if (data.status === 200) {
+          toast.success("Your account has been created! Please login.");
         }
-      );
 
-      const data = response.data;
-      if (data.error) {
-        toast.error(data.error);
-      } else if (data.status === 200) {
-        toast.success("Your account has been created! Please login.");
+        setObj({
+          name: "",
+          phone: "",
+          email: "",
+          password: "",
+          role: "user",
+        });
+      } catch (error) {
+        console.error("Error registering user:", error);
       }
-
-      setObj({
-        name: "",
-        phone: "",
-        email: "",
-        password: "",
-        role: "user",
-      });
-    } catch (error) {
-      console.error("Error registering user:", error);
     }
+
+
   };
 
   const generateUserId = () => {
@@ -60,9 +76,46 @@ const Register = () => {
     return userId;
   };
 
+  // const handleChange = (e) => {
+  //   setObj((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  //   if (e.target.name === "phone") {
+  //     const phoneValid = /^\d{10}$/.test(e.target.value);
+  //     setErrors({ ...errors, phone: !phoneValid });
+  //   } else {
+  //     setErrors({ ...errors, [e.target.name]: !e.target.value });
+  //   }
+  // };
+
   const handleChange = (e) => {
-    setObj((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    
+    setObj((prev) => ({ ...prev, [name]: value }));
+    
+    const validationRegex = {
+      name: /^[A-Za-z]+$/,
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,16}$/,
+      phone: /^\d{10}$/,
+    };
+  
+    if (name === "phone") {
+      const phoneValid = validationRegex.phone.test(value);
+      setErrors((prevErrors) => ({ ...prevErrors, phone: !phoneValid }));
+    } else if (name === "name") {
+      const nameValid = validationRegex.name.test(value);
+      setErrors((prevErrors) => ({ ...prevErrors, name: !nameValid }));
+    } else if (name === "email") {
+      const emailValid = validationRegex.email.test(value);
+      setErrors((prevErrors) => ({ ...prevErrors, email: !emailValid }));
+    } else if (name === "password") {
+      const passwordValid = validationRegex.password.test(value);
+      setErrors((prevErrors) => ({ ...prevErrors, password: !passwordValid }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: !value }));
+    }
   };
+  
 
   const keyframes = `
     @keyframes moveBike {
@@ -74,6 +127,39 @@ const Register = () => {
       }
     }
   `;
+
+  // const inputClasses = (field) => {
+  //   const baseClasses = "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border rounded-lg bg-gray-50 focus:outline-none focus:ring-blue-500 focus:border-transparent focus:ring-2 focus:ring-offset-2";
+  //   const focusClasses = field === "phone" ? (errors.phone ? "focus:ring-red-500" : "focus:ring-green-500") : "";
+  //   const errorClasses = (submitted && !obj[field]) || errors[field] ? "border-red-500" : "border-transparent";
+
+  //   return `${baseClasses} ${focusClasses} ${errorClasses}`;
+  // };
+
+  const inputClasses = (field) => {
+    const baseClasses = "block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-offset-2";
+    const value = obj[field];
+    let focusClasses = "focus:ring-blue-500"; // Default focus ring color
+
+    const validationRegex = {
+      name: /^[A-Za-z ]+$/,
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,16}$/,
+      phone: /^\d{10}$/,
+    };
+  
+    if (validationRegex[field]) {
+      if (validationRegex[field].test(value)) {
+        focusClasses = "focus:ring-green-500";
+      } else if (value.length > 0) {
+        focusClasses = "focus:ring-red-500";
+      }
+    }
+  
+    const errorClasses = errors[field] ? "border-red-500" : "border-transparent";
+
+    return `${baseClasses} ${focusClasses} ${errorClasses}`;
+  };
 
   return (
     <>
@@ -118,7 +204,7 @@ const Register = () => {
                       type="name"
                       value={obj.name}
                       name="name"
-                      className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className={inputClasses("name")}
                       placeholder="Enter your name."
                       onChange={handleChange}
                       autoComplete="username"
@@ -132,7 +218,7 @@ const Register = () => {
                       type="phone"
                       value={obj.phone}
                       name="phone"
-                      className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className={inputClasses("phone")}
                       placeholder="Enter your phone number."
                       onChange={handleChange}
                       autoComplete="phone"
@@ -146,7 +232,7 @@ const Register = () => {
                       type="email"
                       value={obj.email}
                       name="email"
-                      className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className={inputClasses("email")}
                       placeholder="Enter your email."
                       onChange={handleChange}
                       autoComplete="username"
@@ -160,7 +246,7 @@ const Register = () => {
                       type="password"
                       value={obj.password}
                       name="password"
-                      className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className={inputClasses("password")}
                       placeholder="Enter your password."
                       onChange={handleChange}
                       autoComplete="current-password"

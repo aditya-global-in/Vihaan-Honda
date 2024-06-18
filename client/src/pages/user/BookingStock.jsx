@@ -14,13 +14,25 @@ const BookingStock = () => {
     const [addCus, setAddCus] = useState("");
     const [file, setFile] = useState(null);
     const [inputType, setInputType] = useState('single');
-    const [actionType, setActionType] = useState('display'); // new state for action type
+    const [actionType, setActionType] = useState('display');
     const [bookingAmount, setBookingAmount] = useState("");
     const [executive, setExecutive] = useState("");
     const [hp, setHp] = useState("");
     const [updateTicket, setUpdateTicket] = useState(false);
     const [status, setStatus] = useState(null);
-    const [customers, setCustomers] = useState([]); // state to store customer details
+    const [customers, setCustomers] = useState([]);
+    const [errors, setErrors] = useState({
+        addhar: false,
+        cusName: false,
+        bookingAmount: false,
+        executive: false,
+    });
+    const [interacted, setInteracted] = useState({
+        addhar: false,
+        cusName: false,
+        bookingAmount: false,
+        executive: false,
+    });
 
     useEffect(() => {
         const fetchCustomers = async () => {
@@ -65,6 +77,24 @@ const BookingStock = () => {
         event.preventDefault();
         const baseURL = `/api/user/${user_id}`;
 
+        const validationRegex = {
+            addhar: /^\d{12}$/,
+            bookingAmount: /^\d+$/,
+            cusName: /^[A-Za-z ]+$/,
+            executive: /^[A-Za-z ]+$/,
+        };
+
+        const isFormValid =
+            validationRegex.addhar.test(addhar) &&
+            validationRegex.bookingAmount.test(bookingAmount) &&
+            validationRegex.cusName.test(cusName) &&
+            validationRegex.executive.test(executive);
+
+        if (!isFormValid) {
+            toast.error('Please fill in all fields correctly.');
+            return;
+        }
+
         if (inputType === 'bulk') {
             const jsonData = await handleFileUpload();
             if (!jsonData) return;
@@ -87,9 +117,7 @@ const BookingStock = () => {
                 toast.error('An error occurred while uploading the file: ' + error.message);
             }
         } else {
-            const newComplaint = {
-                cusName, addhar, addCus, bookingAmount, executive, hp,
-            };
+            const newComplaint = { cusName, addhar, addCus, bookingAmount, executive, hp };
             try {
                 const response = await axios.post(`${baseURL}/bookingstock`, newComplaint, {
                     headers: { 'Content-Type': 'application/json' }
@@ -110,13 +138,84 @@ const BookingStock = () => {
             }
         }
 
-        // Reset fields after submission
+        
         setCusName("");
         setAddhar("");
         setAddCus("");
         setBookingAmount("");
         setExecutive("");
         setHp("");
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        if (name === "addhar" && !/^\d*$/.test(value)) {
+            return; 
+        }
+
+        if (name === "bookingAmount" && !/^\d*$/.test(value)) {
+            return; 
+        }
+
+        if ((name === "cusName" || name === "executive") && !/^[A-Za-z ]*$/.test(value)) {
+            return; 
+        }
+
+        switch (name) {
+            case 'addhar':
+                setAddhar(value);
+                break;
+            case 'cusName':
+                setCusName(value);
+                break;
+            case 'bookingAmount':
+                setBookingAmount(value);
+                break;
+            case 'executive':
+                setExecutive(value);
+                break;
+            default:
+                break;
+        }
+
+        const validationRegex = {
+            addhar: /^\d{12}$/,
+            bookingAmount: /^\d+$/,
+            cusName: /^[A-Za-z ]+$/,
+            executive: /^[A-Za-z ]+$/,
+        };
+
+        const isValid = validationRegex[name] ? validationRegex[name].test(value) : true;
+
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: !isValid }));
+        setInteracted((prev) => ({ ...prev, [name]: true }));
+    };
+
+    const inputClasses = (field) => {
+        const baseClasses = "block w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-offset-2 border-gray-300";
+        const value = field === "addhar" ? addhar : field === "cusName" ? cusName : field === "bookingAmount" ? bookingAmount : executive;
+        const isInteracted = interacted[field];
+        let focusClasses = "focus:ring-blue-500"; // Default focus ring color
+
+        const validationRegex = {
+            addhar: /^\d{12}$/,
+            bookingAmount: /^\d+$/,
+            cusName: /^[A-Za-z ]+$/,
+            executive: /^[A-Za-z ]+$/,
+        };
+
+        if (isInteracted && validationRegex[field]) {
+            if (validationRegex[field].test(value)) {
+                focusClasses = "focus:ring-green-500";
+            } else if (value.length > 0) {
+                focusClasses = "focus:ring-red-500";
+            }
+        }
+
+        const errorClasses = isInteracted ? (errors[field] ? "border-red-500" : "border-green-500") : "";
+
+        return `${baseClasses} ${focusClasses} ${errorClasses}`;
     };
 
     return (
@@ -139,35 +238,41 @@ const BookingStock = () => {
                                         <input
                                             required
                                             type="text"
-                                            className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className={inputClasses("cusName")}
                                             placeholder="Customer Name."
                                             value={cusName}
-                                            onChange={(e) => setCusName(e.target.value)}
+                                            name="cusName"
+                                            onChange={handleChange}
+                                            autoComplete="name"
                                         />
                                         <input
                                             required
                                             type="text"
-                                            className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className={inputClasses("addhar")}
                                             placeholder="Aadhaar."
                                             value={addhar}
-                                            onChange={(e) => setAddhar(e.target.value)}
+                                            name="addhar"
+                                            onChange={handleChange}
+                                            autoComplete="aadhar"
                                         />
                                         <input
                                             required
                                             type="text"
-                                            className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className={inputClasses("bookingAmount")}
                                             placeholder="Booking Amount"
                                             value={bookingAmount}
-                                            onChange={(e) => setBookingAmount(e.target.value)}
+                                            name="bookingAmount"
+                                            onChange={handleChange}
                                             autoComplete="bookingAmount"
                                         />
                                         <input
                                             required
                                             type="text"
-                                            className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className={inputClasses("executive")}
                                             placeholder="EXECUTIVE"
                                             value={executive}
-                                            onChange={(e) => setExecutive(e.target.value)}
+                                            name="executive"
+                                            onChange={handleChange}
                                             autoComplete="executive"
                                         />
                                         <select

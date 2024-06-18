@@ -14,10 +14,24 @@ const Login = () => {
         email: "",
         password: "",
     });
+    const [errors, setErrors] = useState({
+        email: false
+    });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setObj((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+        const { name, value } = e.target;
+
+        setObj((prev) => ({ ...prev, [name]: value }));
+
+        const validationRegex = {
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        };
+
+        if (name === "email") {
+            const emailValid = validationRegex.email.test(value);
+            setErrors((prevErrors) => ({ ...prevErrors, email: !emailValid }));
+        }
     };
 
     const handleSubmit = async (event) => {
@@ -52,7 +66,7 @@ const Login = () => {
             } else if (data.status === 404) {
                 toast.error("Please check your email id or password.");
             } else if (data.status === 401) {
-                toast.error("Please check you email id or password.");
+                toast.error("Please check your email id or password.");
             }
         } catch (err) {
             console.error(err);
@@ -69,6 +83,28 @@ const Login = () => {
       }
     }
   `;
+
+    const inputClasses = (field) => {
+        const baseClasses = "block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-offset-2";
+        const value = obj[field];
+        let focusClasses = "focus:ring-blue-500"; // Default focus ring color
+
+        const validationRegex = {
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        };
+
+        if (validationRegex[field]) {
+            if (validationRegex[field].test(value)) {
+                focusClasses = "focus:ring-green-500";
+            } else if (value.length > 0) {
+                focusClasses = "focus:ring-red-500";
+            }
+        }
+
+        const errorClasses = errors[field] ? "border-red-500" : "border-transparent";
+
+        return `${baseClasses} ${focusClasses} ${errorClasses}`;
+    };
 
     return (
         <>
@@ -113,7 +149,7 @@ const Login = () => {
                                             type="email"
                                             value={obj.email}
                                             name="email"
-                                            className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                                            className={inputClasses("email")}
                                             placeholder="Enter your email"
                                             onChange={handleChange}
                                             autoComplete="username"
@@ -127,7 +163,7 @@ const Login = () => {
                                             type="password"
                                             value={obj.password}
                                             name="password"
-                                            className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                                            className="block w-full px-5 py-3 text-base text-gray-800 placeholder-gray-500 transition duration-500 ease-in-out transform border rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                                             placeholder="Enter your password"
                                             onChange={handleChange}
                                             autoComplete="current-password"

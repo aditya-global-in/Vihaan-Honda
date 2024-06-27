@@ -5,7 +5,7 @@ const UserRootLayout = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <div className="pt-20"><Outlet /></div>
     </>
   );
 };

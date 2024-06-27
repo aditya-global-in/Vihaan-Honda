@@ -24,7 +24,7 @@
     ],
     "compounds": [
       {
-        "name": "Launch Client and API",
+        "name": "Launch App",
         "configurations": ["Launch Client", "Launch API"]
       }
     ]

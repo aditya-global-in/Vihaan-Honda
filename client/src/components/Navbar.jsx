@@ -36,7 +36,7 @@ const Navbar = () => {
     );
 
     return (
-        <header className="bg-vihaan-honda-red text-gray-600 body-font shadow-lg bg-slate-50">
+        <nav className="bg-vihaan-honda-red text-gray-600 body-font shadow-lg bg-slate-50 fixed w-full top-0 z-50">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
                 <div
                     className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 cursor-pointer"
@@ -215,7 +215,7 @@ const Navbar = () => {
                     </>
                 )}
             </div>
-        </header>
+        </nav>
     );
 };
 

@@ -73,16 +73,16 @@ const BookingStock = () => {
         }
     };
 
+    const validationRegex = {
+        addhar: /^\d{12}$/,
+        bookingAmount: /^(0|[1-9]\d*)$/,
+        cusName: /^[A-Za-z ]+$/,
+        executive: /^[A-Za-z ]+$/,
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const baseURL = `/api/user/${user_id}`;
-
-        const validationRegex = {
-            addhar: /^\d{12}$/,
-            bookingAmount: /^\d+$/,
-            cusName: /^[A-Za-z ]+$/,
-            executive: /^[A-Za-z ]+$/,
-        };
 
         const isFormValid =
             validationRegex.addhar.test(addhar) &&
@@ -150,15 +150,15 @@ const BookingStock = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        if (name === "addhar" && !/^\d*$/.test(value)) {
+        if (name === "addhar" && !validationRegex.addhar.test(value)) {
             return; 
         }
 
-        if (name === "bookingAmount" && !/^\d*$/.test(value)) {
+        if (name === "bookingAmount" && !validationRegex.bookingAmount.test(value)) {
             return; 
         }
 
-        if ((name === "cusName" || name === "executive") && !/^[A-Za-z ]*$/.test(value)) {
+        if ((name === "cusName" || name === "executive") && !validationRegex.cusName.test(value)) {
             return; 
         }
 
@@ -179,13 +179,6 @@ const BookingStock = () => {
                 break;
         }
 
-        const validationRegex = {
-            addhar: /^\d{12}$/,
-            bookingAmount: /^\d+$/,
-            cusName: /^[A-Za-z ]+$/,
-            executive: /^[A-Za-z ]+$/,
-        };
-
         const isValid = validationRegex[name] ? validationRegex[name].test(value) : true;
 
         setErrors((prevErrors) => ({ ...prevErrors, [name]: !isValid }));
@@ -197,13 +190,6 @@ const BookingStock = () => {
         const value = field === "addhar" ? addhar : field === "cusName" ? cusName : field === "bookingAmount" ? bookingAmount : executive;
         const isInteracted = interacted[field];
         let focusClasses = "focus:ring-blue-500"; // Default focus ring color
-
-        const validationRegex = {
-            addhar: /^\d{12}$/,
-            bookingAmount: /^\d+$/,
-            cusName: /^[A-Za-z ]+$/,
-            executive: /^[A-Za-z ]+$/,
-        };
 
         if (isInteracted && validationRegex[field]) {
             if (validationRegex[field].test(value)) {

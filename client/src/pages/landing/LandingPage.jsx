@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
@@ -7,7 +6,6 @@ const LandingPage = () => {
 
   return (
     <div>
-      <Navbar />
 
       <header className="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-10 md:py-20">
         <div className="container mx-auto text-center p-2 bg-black bg-opacity-20 backdrop-blur-xl rounded-lg drop-shadow-xl md:w-2/3 ">

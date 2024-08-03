@@ -174,7 +174,7 @@ export const UserTickets = () => {
                 {userTickets.length === 0 ? (
                     <p className="text-lg text-center">
                         {role === "9087-t1-vaek-123-riop"
-                            ? "No one has created any tickets, what a surprise! Either the systems are working really well, or not at all!"
+                            ? "The stock has not yet been added to the inventory, but we will ensure it is updated promptly."
                             : role === "2069-t2-prlo-456-fiok"
                                 ? "You have not been assigned any tickets yet"
                                 : "You have not created any tickets yet."}
@@ -240,7 +240,7 @@ export const UserTickets = () => {
                                         <td className="py-2 px-4 text-center">{ticket.chassisNo}</td>
                                         <td className="py-2 px-4 text-center">{ticket.engineNo}</td>
                                         <td className="py-2 px-4 text-center">{ticket.location}</td>
-                                        <td className="py-2 px-4 text-center">{new Date(ticket.createdAt).toLocaleString()}</td>
+                                        <td className="py-2 px-4 text-center">{new Date(ticket.createdAt).toLocaleDateString() + ' ' + new Date(ticket.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</td>
                                         <td className="py-2 px-4 text-center">{ticket.nameCus}</td>
                                         <td className="py-2 px-4 text-center">{ticket.bookingAmount}</td>
                                         <td className="py-2 px-4 text-center">{ticket.SaleDate}</td>
